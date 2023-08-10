@@ -12,5 +12,6 @@ public class MedicalHistory:Auditable
     public string Recipe { get; set; }
     public DateTime InspectionTime { get; set; }
     public long PatienId { get; set; }
+
     public Patient Patient { get; set; }
 }
