@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JourHealth.Domain.Commons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace JourHealth.DAL.IRepositories
 {
-    internal class Class1
+    public interface IRepository<T> where T : Auditable
     {
+        Task CreateAsync(T entity);
+        Task Update(T entity);
+        Task Delete(T entity);
+        Task<T> SelectByIdAsync(long id);
+        IQueryable<T> SelectAll();
     }
 }
