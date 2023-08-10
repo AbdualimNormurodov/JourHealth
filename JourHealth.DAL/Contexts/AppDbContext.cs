@@ -7,7 +7,7 @@ public class AppDbContext:DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string stringConnection = "Host=localhost;Port=5432;User Id=postgres;Database=Health; Password=abdualim2001;";
+        string stringConnection = "Host=localhost;Port=5432;User Id=postgres;Database=JourHealth; Password=abdualim2001;";
         optionsBuilder.UseNpgsql(stringConnection);
     }
     public DbSet<Patient> Patients { get; set; }
@@ -15,10 +15,10 @@ public class AppDbContext:DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<MedicalHistory>()
-        //    .HasOne(d => d.Patient)
-        //    .WithMany()
-        //    .HasForeignKey(d => d.PatienId);
+        modelBuilder.Entity<MedicalHistory>()
+            .HasOne(d => d.Patient)
+            .WithMany()
+            .HasForeignKey(d => d.PatienId);
         modelBuilder.Entity<Patient>().HasData(
 
                new Patient { Id = 1, FirstName = "Frasco", LastName = "Pargiter", DateOfBirth = new DateTimeOffset(new DateTime(1956, 06, 3)).UtcDateTime, Gender = "Male", Address = "2668 Garrison Court", Phone = "+7 722 471 0555", Email = "fpargiter0@addtoany.com" },
@@ -39,11 +39,11 @@ public class AppDbContext:DbContext
             );
         modelBuilder.Entity<MedicalHistory>().HasData(
             new MedicalHistory { Id = 1, DoctorSpeciality = "Dermatolog", DoctorFullName = "Cordrey Zacharia", Symptoms = "Measles", Diagnosis = "Asperger syndrome", TypeOfCure = "Diabetes Treatments", Recipe = "Aspiren,Izofluran", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2013, 02, 10)).UtcDateTime },
-            new MedicalHistory { Id = 2, DoctorSpeciality = "Neurolog", DoctorFullName = "Drinkhill Elijah", Symptoms = "conjunctivitis", Diagnosis = " Rett syndrome", TypeOfCure = "Stem Cell Therapy", Recipe = "", PatienId = 2, InspectionTime = new DateTimeOffset(new DateTime(2018, 05, 15)).UtcDateTime },
-            new MedicalHistory { Id = 3, DoctorSpeciality = "Orthoped", DoctorFullName = "Kennelly", Symptoms = "Cough", Diagnosis = " Scrotum", TypeOfCure = "Islet Cell Transplantation", Recipe = "", PatienId = 6, InspectionTime = new DateTimeOffset(new DateTime(2013, 09, 18)).UtcDateTime },
-            new MedicalHistory { Id = 4, DoctorSpeciality = "Pediatr", DoctorFullName = "Lunney Freda", Symptoms = "Pathognomonic", Diagnosis = " Strabismus", TypeOfCure = "Immunotherapies", Recipe = "", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2007, 02, 20)).UtcDateTime },
-            new MedicalHistory { Id = 5, DoctorSpeciality = "Cardiolog", DoctorFullName = "Ferreiro Timmy", Symptoms = "Dehydration", Diagnosis = "Reproductive system", TypeOfCure = "Inhaled Insulin", Recipe = "", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2017, 05, 23)).UtcDateTime },
-            new MedicalHistory { Id = 6, DoctorSpeciality = "Psychiatr", DoctorFullName = "Kennelly Dawn", Symptoms = "Allergy", Diagnosis = " Pervasive developmental disorders ", TypeOfCure = "Preserve Function of Beta Cells", Recipe = "", PatienId = 3, InspectionTime = new DateTimeOffset(new DateTime(2001, 12, 11)).UtcDateTime }
+            new MedicalHistory { Id = 2, DoctorSpeciality = "Neurolog", DoctorFullName = "Drinkhill Elijah", Symptoms = "conjunctivitis", Diagnosis = " Rett syndrome", TypeOfCure = "Stem Cell Therapy", Recipe = "Morfin", PatienId = 2, InspectionTime = new DateTimeOffset(new DateTime(2018, 05, 15)).UtcDateTime },
+            new MedicalHistory { Id = 3, DoctorSpeciality = "Orthoped", DoctorFullName = "Kennelly", Symptoms = "Cough", Diagnosis = " Scrotum", TypeOfCure = "Islet Cell Transplantation", Recipe = " Garlic clove, Minced", PatienId = 6, InspectionTime = new DateTimeOffset(new DateTime(2013, 09, 18)).UtcDateTime },
+            new MedicalHistory { Id = 4, DoctorSpeciality = "Pediatr", DoctorFullName = "Lunney Freda", Symptoms = "Pathognomonic", Diagnosis = " Strabismus", TypeOfCure = "Immunotherapies", Recipe = "Galotan", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2007, 02, 20)).UtcDateTime },
+            new MedicalHistory { Id = 5, DoctorSpeciality = "Cardiolog", DoctorFullName = "Ferreiro Timmy", Symptoms = "Dehydration", Diagnosis = "Reproductive system", TypeOfCure = "Inhaled Insulin", Recipe = "Droperidol", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2017, 05, 23)).UtcDateTime },
+            new MedicalHistory { Id = 6, DoctorSpeciality = "Psychiatr", DoctorFullName = "Kennelly Dawn", Symptoms = "Allergy", Diagnosis = " Pervasive developmental disorders ", TypeOfCure = "Preserve Function of Beta Cells", Recipe = "Diazepam", PatienId = 3, InspectionTime = new DateTimeOffset(new DateTime(2001, 12, 11)).UtcDateTime }
             );
 
     }

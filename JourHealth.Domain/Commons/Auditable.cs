@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace JourHealth.Domain.Commons;
 
-namespace JourHealth.Domain.Commons
+public class Auditable
 {
-    internal class AppDbContexts
-    {
-    }
+    public long Id { get; set; }
 }

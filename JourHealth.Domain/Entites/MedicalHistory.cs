@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JourHealth.Domain.Commons;
 
-namespace JourHealth.Domain.Entites
+namespace JourHealth.Domain.Entites;
+
+public class MedicalHistory:Auditable
 {
-    internal class MedicalHistory
-    {
-    }
+    public string DoctorSpeciality { get; set; }
+    public string DoctorFullName { get; set; }
+    public string Symptoms { get; set; }
+    public string Diagnosis { get; set; }
+    public string TypeOfCure { get; set; }
+    public string Recipe { get; set; }
+    public DateTime InspectionTime { get; set; }
+    public long PatienId { get; set; }
+    public Patient Patient { get; set; }
 }
