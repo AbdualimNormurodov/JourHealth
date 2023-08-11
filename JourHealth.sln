@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JourHealth.Console", "JourHealth.Console\JourHealth.Console.csproj", "{F9F7C462-B9BC-4039-B109-88A07E5E6679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JourHealth.Print", "JourHealth.Console\JourHealth.Print.csproj", "{F9F7C462-B9BC-4039-B109-88A07E5E6679}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JourHealth.Domain", "JourHealth.Domain\JourHealth.Domain.csproj", "{0D0636AE-71E5-41A5-88F7-9909DA7E29C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JourHealth.Domain", "JourHealth.Domain\JourHealth.Domain.csproj", "{0D0636AE-71E5-41A5-88F7-9909DA7E29C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JourHealth.DAL", "JourHealth.DAL\JourHealth.DAL.csproj", "{51E71389-2539-4F04-85B9-D1AA364A171E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JourHealth.DAL", "JourHealth.DAL\JourHealth.DAL.csproj", "{51E71389-2539-4F04-85B9-D1AA364A171E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JourHealth.Service", "JourHealth.Service\JourHealth.Service.csproj", "{E73E211B-4F8B-4721-B45A-6850A4745CD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JourHealth.Service", "JourHealth.Service\JourHealth.Service.csproj", "{E73E211B-4F8B-4721-B45A-6850A4745CD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

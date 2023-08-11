@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JourHealth.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230810124627_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20230810183925_InitialMig")]
+    partial class InitialMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace JourHealth.DAL.Migrations
                         .HasColumnType("bigint");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Diagnosis")
                         .IsRequired()
@@ -62,6 +65,9 @@ namespace JourHealth.DAL.Migrations
                     b.Property<string>("TypeOfCure")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -156,6 +162,9 @@ namespace JourHealth.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp with time zone");
 
@@ -178,6 +187,9 @@ namespace JourHealth.DAL.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

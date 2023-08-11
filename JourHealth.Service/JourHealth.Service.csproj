@@ -3,7 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JourHealth.DAL\JourHealth.DAL.csproj" />
+    <ProjectReference Include="..\JourHealth.Domain\JourHealth.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

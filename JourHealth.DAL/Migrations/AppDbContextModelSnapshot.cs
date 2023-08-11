@@ -30,6 +30,9 @@ namespace JourHealth.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Diagnosis")
                         .IsRequired()
                         .HasColumnType("text");
@@ -59,6 +62,9 @@ namespace JourHealth.DAL.Migrations
                     b.Property<string>("TypeOfCure")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -153,6 +159,9 @@ namespace JourHealth.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp with time zone");
 
@@ -175,6 +184,9 @@ namespace JourHealth.DAL.Migrations
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

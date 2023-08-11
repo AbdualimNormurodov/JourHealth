@@ -1,38 +1,42 @@
 ﻿using JourHealth.DAL.Contexts;
 using JourHealth.DAL.IRepositories;
 using JourHealth.Domain.Commons;
+using Microsoft.EntityFrameworkCore;
 
 namespace JourHealth.DAL.Repositories;
 
 public class Repository<T> : IRepository<T> where T : Auditable
 {
     private readonly AppDbContext appDbContext;
-    public Repository()
+
+    public Repository(AppDbContext appDbContext)
     {
-        this.appDbContext = new AppDbContext();
-    }
-    public Task CreateAsync(T entity)
-    {
-        throw new NotImplementedException();
-    }
-    public Task Update(T entity)
-    {
-        throw new NotImplementedException();
+        this.appDbContext = appDbContext;
     }
 
-    public Task Delete(T entity)
+    public async Task CreateAsync(T entity)
     {
-        throw new NotImplementedException();
+        entity.CreatedAt= DateTime.UtcNow;
+        await this.appDbContext.Set<T>().AddAsync(entity);
+    }
+    public void Update(T entity)
+    {
+        entity.UpdatedAt = DateTime.UtcNow;
+        this.appDbContext.Entry(entity).State=EntityState.Modified;
+    }
+    public void Delete(T entity)
+    {
+        this.appDbContext.Set<T>().Remove(entity);
     }
 
     public Task<T> SelectByIdAsync(long id)
-    {
-        throw new NotImplementedException();
-    }
+    
+        =>this.appDbContext.Set<T>().FirstOrDefaultAsync(appDbContext=>appDbContext.Id == id);
 
     public IQueryable<T> SelectAll()
-    {
-        throw new NotImplementedException();
-    }
+    
+        =>this.appDbContext.Set<T>().AsNoTracking().AsQueryable();
 
+    public Task SaveAsync()
+         => this.appDbContext.SaveChangesAsync();
 }

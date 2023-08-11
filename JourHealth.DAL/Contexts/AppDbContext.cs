@@ -45,6 +45,5 @@ public class AppDbContext:DbContext
             new MedicalHistory { Id = 5, DoctorSpeciality = "Cardiolog", DoctorFullName = "Ferreiro Timmy", Symptoms = "Dehydration", Diagnosis = "Reproductive system", TypeOfCure = "Inhaled Insulin", Recipe = "Droperidol", PatienId = 1, InspectionTime = new DateTimeOffset(new DateTime(2017, 05, 23)).UtcDateTime },
             new MedicalHistory { Id = 6, DoctorSpeciality = "Psychiatr", DoctorFullName = "Kennelly Dawn", Symptoms = "Allergy", Diagnosis = " Pervasive developmental disorders ", TypeOfCure = "Preserve Function of Beta Cells", Recipe = "Diazepam", PatienId = 3, InspectionTime = new DateTimeOffset(new DateTime(2001, 12, 11)).UtcDateTime }
             ) ;
-
     }
 }
